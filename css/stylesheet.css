@@ -41,9 +41,10 @@ body {
 }
 
 .lyriikanpala p{
-
-	font-family: 'Arvo', serif;
-	font-size:30px;
+	line-height:80%;
+	font-family: 'Raleway', sans-serif;
+	font-size:20px;
+	font-weight:300;
 	color:white;
 	margin-left:2%;
 	margin-bottom:4%;
