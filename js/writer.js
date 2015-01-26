@@ -71,18 +71,18 @@ function showSidebar(){
 		$("#sidebarback").css('display', 'block');
 		$("#sidebar").css('display', 'block');
 		$("#mobileLyricSubmit").css('display', 'none');
-		console.log("Desktopside");
+
 
 	} else if (authData && mq.matches) {
 		$("#sidebarback").css('display', 'none');
 		$("#sidebar").css('display', 'none');
 		$("#mobileLyricSubmit").css('display', 'block');
-		console.log("Mobiiliside");
+
 	} else {
 		$("#sidebarback").css('display', 'none');
 		$("#sidebar").css('display', 'none');
 		$("#mobileLyricSubmit").css('display', 'none');
-		console.log("Eisidee");
+
 
 	}
 
