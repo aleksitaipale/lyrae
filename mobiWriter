@@ -1,0 +1,180 @@
+//var safeColors = ['#3FB8AF', '#7FC7AF', '#FF7473', '#FF9E9D'];
+//TODO: MOBILE AUTHORIZE, UU YEA
+var safeColors = ['#269F96', '#66AE96', '#E65B5A', '#E68584'];
+
+var lastColor = null;
+var loginContent= "<input type='text' placeholder='E-mail' id='email' autocomplete='off'><input type='password' placeholder='Password' id='password' autocomplete='off'><input type='button' value='Login' class='loginbutton'>";
+var rand = function() {
+	return Math.floor(Math.random()*(safeColors.length));
+};
+
+
+var randomColor = function() {
+	var color = safeColors[rand()];
+
+	if (lastColor !== null){
+		while (color === lastColor){
+			color = safeColors[rand()];
+
+		}
+
+	}
+
+	lastColor = color;
+	
+	
+	return color;
+};
+
+$(document).ready(function() {
+
+	
+
+
+//create a reference to firebase
+var url = "https://lyriikkaa.firebaseio.com/";
+var lyricRef = new Firebase(url);
+var authData = lyricRef.getAuth();
+
+//register DOM elements
+
+var artist = $('#artist');
+var song = $('#song');
+var lyric = $('#lyric');
+var lyricList = $("#lyriikkalista");
+
+
+
+
+lyricRef.onAuth(function(authData) {
+	if (authData) {
+// user authenticated with Firebase
+$("#login").html("<p style='line-height: normal;'>You are logged in as <b>" + authData.password.email + "</b>!</p>" + "<input style='display:inline;' type='button' value='Logout' class='logoutbutton'>");
+$("#sidebarback, #sidebar").show();
+
+$("#logoutbutton").on( "click", function() {
+	lyricRef.unauth();
+	$("#login").html(loginContent);
+});
+
+
+} else {
+	$("#sidebarback, #sidebar").hide();
+}
+});
+
+$("#sidebar").css('background',randomColor());
+
+
+
+function authorize(evt){
+	console.log("Logging in...");
+
+
+var emailValue = $('#email').val();
+var passwordValue = $('#password').val();
+
+	lyricRef.authWithPassword({
+		email : $('#email').val(),
+		password : $('#password').val()
+	}, function(error, authData){
+		if (error){
+			$(".loginbutton").notify(
+				("Incorrect login!"),
+				{className:'error'},
+				{arrowShow:false});
+			//window.alert("Dude, you got your login information all wrong!");
+		} else if (authData) {
+			$("#login").html("<p style='line-height: normal;'>You are logged in as <b>" + authData.password.email + "</b>!</p>" + "<input style='display:inline;' type='button' value='Logout' class='logoutbutton'>");
+			$(".logoutbutton").notify(
+				("Successful login!"),
+				{className:'success'},
+				{arrowShow:false});
+			
+
+
+		}
+
+		console.log(authData); }, {
+			remember: "default"
+		});
+
+	evt.preventDefault();
+
+
+}
+
+
+//what happens when "SUBMIT" is clicked
+
+function funct1(event){
+	var date = Date();
+	var artistData = artist.val();
+	var songData = song.val();
+	var lyricData = lyric.val();
+	console.log("This should push new data");
+// create a new lyric data
+
+lyricRef.push({Artist: artistData, Song: songData, Lyric: lyricData, Date: date});
+
+event.preventDefault();
+
+
+}
+
+
+
+
+lyricRef.on('child_added', function(snapshot){
+
+	var data = snapshot.val();
+	var artistName = data.Artist;
+	var songName = data.Song;
+	var lyricName = data.Lyric;
+	var theColor = randomColor();
+
+	var lyricBox = $("<div>").addClass("lyriikanpala");
+	var artistSongElement = $("<h1>");
+	var songElement = $("<span>");
+	songElement.text(songName);
+	artistSongElement.text(artistName);
+	artistSongElement.append(songElement);
+	artistSongElement.css('color', theColor);
+
+	var lyricElement = $("<p>");
+	lyricElement.text(lyricName);
+	lyricBox.append(artistSongElement, lyricElement);
+	lyricBox.css('background',theColor);
+	lyricList.append(lyricBox);
+	
+
+
+});
+
+
+
+$(document).on("click", ".submitbutton",funct1);
+$(document).on("click", ".loginbutton",function(){
+
+	var mq = window.matchMedia('only screen and (max-width : 644px)');
+	if(mq.matches) {
+		window.location.href = "mobileLogin.html";
+	} else {
+		authorize();
+	}
+
+
+});
+
+$(document).on("click", "#mobiLogin",function(){
+alert("No moi!");
+
+});
+
+
+$(document).on( "click", ".logoutbutton", function(){
+	lyricRef.unauth();
+	$("#login").html(loginContent);
+});
+
+});

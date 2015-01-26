@@ -1,0 +1,59 @@
+<!doctype html>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+	<link href='normalize.css' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Stalemate' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
+	<link href='http://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
+
+	<script src="https://cdn.firebase.com/js/client/1.1.1/firebase.js"></script>
+	<script src="notify.min.js"></script>
+
+	<script src="writer.js"></script>
+
+	<title>Lyrae - A small lyric stash</title>
+	<link rel="stylesheet" href="stylesheet.css">
+
+</head>
+
+<body>
+	<header>
+		<div id="logo">LYRAE</div>
+		<div id="login">
+			<input type='text' placeholder='E-mail' id='email' autocomplete='off'>
+			<input type='password' placeholder='Password' id='password' autocomplete='off'>
+			<input type='button' value='Login' class='loginbutton'>
+		</div>
+	</header>
+	<div id="headerback"></div>
+
+
+	<div id="sidebar">
+		<form id="sendLyrics">
+			<div id="submitDiv">
+				<p class="miniTitle">ARTIST</p>
+				<input type="text" id="artist" autocomplete="off">
+				<p class="miniTitle">SONG</p>
+				<input type="text" id="song" autocomplete="off">
+				<p class="miniTitle">LYRICS</p>
+				<textarea rows="8" type="text" id="lyric" autocomplete="off"></textarea>
+				<input type="submit" value="Submit" class="submitbutton" />
+			</div>
+		</form>
+	</div>
+	<div id="mobileLyricSubmit"><a href="mobiSubmit.html">SUBMIT LYRICS</a></div>
+
+	<div id="mainArea">
+		<div id="sidebarback"></div>
+		<div id="content">
+			<div id="lyriikkalista">
+			</div>
+		</div>
+	</div>
+</body>
+</html>

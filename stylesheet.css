@@ -1,0 +1,272 @@
+
+
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+body {
+
+	font-family: 'Arvo', serif;
+}
+
+#sidebar p{
+	color:white;
+}
+
+.deletebutton {
+	display:none;
+}
+
+#content{
+	display:inline-block;
+	width:80%;
+	margin:0 auto;	
+
+}
+
+#lyriikkalista {
+	margin: 5% auto;
+}
+
+.lyriikanpala{
+	padding:5%;
+	margin: 0 auto 3% auto;
+	width:80%;
+	text-align:left;
+
+}
+
+.lyriikanpala p{
+
+	font-family: 'Arvo', serif;
+	font-size:30px;
+	color:white;
+	margin-left:2%;
+	margin-bottom:4%;
+	white-space:pre-wrap;
+}
+
+.lyriikanpala span{
+	margin-left:4%;
+	font-weight:400;
+}
+
+input, textarea {
+
+	box-sizing: border-box;
+}
+textarea {
+	resize: none;
+}
+
+#login{
+	vertical-align: middle;
+	line-height:50px;
+	position:absolute;
+	right:8%;
+}
+
+#login p{
+	display:inline;
+	vertical-align: middle;
+	line-height:50px;
+	margin-right:15px;
+}
+
+
+body {
+	margin:0;
+}
+
+.miniTitle{
+
+	margin-bottom:0;
+}
+
+
+#artist {
+	width:100%;
+	font-size:25px;
+	margin:2% 2% 2% 0;
+}
+#song{
+	width:100%;
+	font-size:25px;
+}
+#lyric{
+	margin-top:2%;
+	width:100%;
+	height:100%;
+	font-size:20px;
+
+}
+
+#headerback {
+	height:50px;
+	display:block;
+}
+header {
+	background-color:blue;
+	height:50px;
+	position:fixed;
+	width:100%;
+	margin-top:0;
+	top:0;
+
+	background: rgba(255,255,255,1);
+	background: -moz-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 66%, rgba(239,239,239,1) 77%, rgba(237,237,237,1) 81%);
+	background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(255,255,255,1)), color-stop(66%, rgba(246,246,246,1)), color-stop(77%, rgba(239,239,239,1)), color-stop(81%, rgba(237,237,237,1)));
+	background: -webkit-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 66%, rgba(239,239,239,1) 77%, rgba(237,237,237,1) 81%);
+	background: -o-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 66%, rgba(239,239,239,1) 77%, rgba(237,237,237,1) 81%);
+	background: -ms-linear-gradient(top, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 66%, rgba(239,239,239,1) 77%, rgba(237,237,237,1) 81%);
+	background: linear-gradient(to bottom, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 66%, rgba(239,239,239,1) 77%, rgba(237,237,237,1) 81%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#ededed', GradientType=0 );
+}
+
+#sendLyrics{
+	display:inline-block;
+	float:left;
+	padding-top:20%;
+	width:100%;
+	height:100%;
+	padding-left:4%;
+
+}
+
+#submitDiv{
+	width:80%;
+	margin-left:3%;
+	text-align:left;
+
+}
+
+#lyricsDiv {
+	
+	margin-top:3%;
+	height:50%;
+}
+
+#submitbutton{
+	margin-top:4%;
+	padding:2%;
+}
+
+#logo{
+	line-height:50px;
+	vertical-align: middle;
+	font-size:25px;
+	width:auto;
+	margin:0 0 1% 0;
+	padding:0 2% 0 2%;
+	height:100%;
+	color:#454545;
+	float:left;
+	font-family: 'Oswald', sans-serif;
+	letter-spacing:3px;
+	
+}
+
+#sidebar{
+
+	position:fixed;
+	left:0;
+	background-color:pink;
+	width:20%;
+	height:100%;
+	display:none;
+}
+#mainArea{
+	text-align:center;
+}
+
+#sidebarback {
+	float:left;
+	width:20%;
+	min-height:600px;
+	display:none;
+}
+
+
+
+h1{
+	background-color:white;
+	width:50%;
+	padding:1%;
+	margin-left:2%;
+	font-weight:bold;
+	opacity:70%;
+	margin-bottom:0;
+	font-size:20px;
+	font-weight:900;
+}
+
+#mobileLyricSubmit{
+
+	width:100%;
+	height:5%;
+	padding: 5% 0 5% 0;
+	background-color:white;
+	text-align:center;
+	font-weight:700;
+	color:white;
+	background-color:#FF7373;
+}
+
+#mobileLyricSubmit a {
+	text-decoration: none;
+	color: white;
+	box-sizing:border-box;
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media handheld, (-webkit-min-device-pixel-ratio: 1.5) and (max-width : 644px){
+
+	#sidebarback, #sidebar{
+		display:none;
+		visibility: hidden;
+	}
+
+	#header{
+		height:2em;
+	}
+
+
+	#lyriikkalista li{
+		margin:0;
+		padding:0;
+
+	}
+
+	#email, #password{display:none;}
+
+
+
+	.lyriikanpala p {
+
+		font-size:0.9em;
+		text-align:center;
+		padding:10%;
+		margin:0;
+	}
+
+	.lyriikanpala h1 {
+		width:100%;
+		margin:0;
+		text-align:center;
+		padding:2%;
+	}
+
+	.lyriikanpala, #lyriikkalista, #content{
+		margin:0;
+		padding:0;
+		width:100%;
+
+	}
+}
+
+
+
